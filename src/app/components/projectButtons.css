@@ -1,0 +1,13 @@
+/* Simple button hover effect for project cards */
+
+.project-btn {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.project-btn:hover {
+  transform: scale(1.1);
+} 
