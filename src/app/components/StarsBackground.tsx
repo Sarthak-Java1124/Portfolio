@@ -39,7 +39,6 @@ const StarsBackground: React.FC = () => {
     window.addEventListener('resize', resize);
     resize();
 
-    // Initialize stars
     if (stars.current.length === 0) {
       for (let i = 0; i < STAR_COUNT; i++) {
         stars.current.push({
@@ -53,7 +52,7 @@ const StarsBackground: React.FC = () => {
     function draw() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
-      for (let star of stars.current) {
+      for (const star of stars.current) {
         ctx.beginPath();
         ctx.arc(star.x, star.y, STAR_SIZE * star.z, 0, 2 * Math.PI);
         ctx.fillStyle = STAR_COLOR;
@@ -65,7 +64,7 @@ const StarsBackground: React.FC = () => {
     }
 
     function update() {
-      for (let star of stars.current) {
+      for (const star of stars.current) {
         star.x += STAR_SPEED * star.z;
         if (star.x > width + 10) {
           star.x = -10;
@@ -86,7 +85,7 @@ const StarsBackground: React.FC = () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [isClient]);
 
   if (!isClient) {
     return null;

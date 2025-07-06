@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,19 +38,20 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-cyan-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo/Brand */}
           <div className="flex items-center space-x-3">
-            <img 
+            <Image 
               src="/static/sarthak_logo.png" 
               alt="Sarthak Logo" 
+              width={40}
+              height={40}
               className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
+              priority
             />
             <span className="text-cyan-400 font-bold text-xl">
               Sarthak
             </span>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex">
             <div className="bg-black/50 rounded-full px-8 py-3 shadow-[0_10px_40px_rgba(59,130,246,0.4),0_4px_20px_rgba(59,130,246,0.2)] flex items-center space-x-8 transform hover:scale-105 transition-all duration-300 hover:px-10 hover:py-4">
               {navItems.map((item) => (
@@ -64,7 +66,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -76,7 +77,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div

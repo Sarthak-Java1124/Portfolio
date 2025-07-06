@@ -17,7 +17,6 @@ const AboutMe = () => {
         <section className="w-full bg-black py-20 overflow-hidden" id="about">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
-                    {/* Abstract Cyberpunk Animation */}
                     <div className="lg:w-1/2 flex items-center justify-center">
                         <motion.div
                             className="relative w-80 h-80"
@@ -26,7 +25,6 @@ const AboutMe = () => {
                             transition={{ duration: 0.8, ease: 'easeOut' }}
                             viewport={{ once: true }}
                         >
-                            {/* Central Core */}
                             <motion.div
                                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-green-400/30 to-cyan-400/30 rounded-full border-2 border-cyan-400"
                                 animate={{
@@ -40,7 +38,6 @@ const AboutMe = () => {
                                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                             />
                             
-                            {/* Orbiting Nodes */}
                             {isClient && [...Array(4)].map((_, i) => (
                                 <motion.div
                                     key={i}
@@ -64,7 +61,6 @@ const AboutMe = () => {
                                 />
                             ))}
 
-                            {/* Glitchy Connectors */}
                             {isClient && [...Array(4)].map((_, i) => (
                                 <svg key={i} className="absolute top-0 left-0 w-full h-full overflow-visible">
                                     <motion.line
@@ -89,7 +85,6 @@ const AboutMe = () => {
                         </motion.div>
                     </div>
 
-                    {/* About Me Content */}
                     <motion.div 
                         className="lg:w-1/2 space-y-6"
                         initial={{ opacity: 0, x: 20 }}
@@ -103,13 +98,11 @@ const AboutMe = () => {
                         
                         <div className="space-y-4 text-gray-300">
                              <p className="leading-relaxed">
-                             Hey, I'm Sarthak — a web and app developer who's more inclined towards Web3. I’m comfortable building full-stack apps, writing clean and scalable code, and working with both frontend and backend. I’ve got solid hands-on experience with Solidity, and I’ve explored Rust too.
-
-
+                             Hey, I&apos;m Sarthak — a web and app developer who&apos;s more inclined towards Web3. I&apos;m comfortable building full-stack apps, writing clean and scalable code, and working with both frontend and backend. I&apos;ve got solid hands-on experience with Solidity, and I&apos;ve explored Rust too.
                               </p>
                               
                               <p className="leading-relaxed">
-                              I love learning by building, and I’m always curious about how things work under the hood , especially when it comes to blockchain tech. Whether it’s smart contracts or digging into protocol-level stuff, I enjoy figuring it all out.
+                              I love learning by building, and I&apos;m always curious about how things work under the hood , especially when it comes to blockchain tech. Whether it&apos;s smart contracts or digging into protocol-level stuff, I enjoy figuring it all out.
 
 Always up for solving real problems, experimenting with new tools, and just leveling up every day.
                               </p>
@@ -117,7 +110,7 @@ Always up for solving real problems, experimenting with new tools, and just leve
 
                         <div className="flex flex-wrap gap-4 mt-8">
                             <motion.a
-                                href="mailto:sarthakit12412004@iiitsonepat.ac.in"
+                                href="mailto:sarthakit12412004@gmail.com"
                                 className={`px-6 py-3 bg-gradient-to-r from-green-500 to-cyan-500 rounded-lg text-black font-semibold flex items-center gap-2 ${spaceMono.className}`}
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(45, 212, 191, 0.5)" }}
                                 whileTap={{ scale: 0.95 }}

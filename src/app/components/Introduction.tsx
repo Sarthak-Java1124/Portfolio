@@ -13,7 +13,7 @@ export default function Introduction() {
         <div className="lg:w-1/2 space-y-6 order-1 lg:order-2 text-center lg:text-left w-full">
           <div className="space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight hover:scale-105 transition-transform duration-300 cursor-pointer">
-              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 hover:from-purple-400 hover:to-pink-400 transition-all duration-500">Sarthak</span>
+              Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 hover:from-purple-400 hover:to-pink-400 transition-all duration-500">Sarthak</span>
             </h1>
             <h2 className="text-xl sm:text-2xl text-gray-300 font-mono hover:text-blue-400 hover:scale-105 transition-all duration-300 cursor-pointer">
               Full Stack Developer
@@ -22,10 +22,10 @@ export default function Introduction() {
           
           <div className="space-y-4">
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed hover:text-white hover:scale-105 transition-all duration-300 cursor-pointer w-full overflow-hidden">
-              I build fast, clean, scalable websites and apps and lately, I've been diving deep into the Web3 rabbit hole. Think smart contracts, dApps, tokens… all the buzzwords, minus the hype.
+              I build fast, clean, scalable websites and apps and lately, I&apos;ve been diving deep into the Web3 rabbit hole. Think smart contracts, dApps, tokens… all the buzzwords, minus the hype.
             </p>
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed hover:text-white hover:scale-105 transition-all duration-300 cursor-pointer w-full overflow-hidden">
-              If it runs on the browser, phone, or blockchain, chances are I've tinkered with it. Whether it's JavaScript, Dart, Solidity, or convincing my API to behave. I make ideas work (and look good while doing it).
+              If it runs on the browser, phone, or blockchain, chances are I&apos;ve tinkered with it. Whether it&apos;s JavaScript, Dart, Solidity, or convincing my API to behave. I make ideas work (and look good while doing it).
             </p>
           </div>
           

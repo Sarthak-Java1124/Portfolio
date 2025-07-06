@@ -22,7 +22,7 @@ const socials = [
   {
     name: 'Email',
     icon: FaEnvelope,
-    url: 'mailto:sarthakit12412004@iiitsonepat.ac.in',
+    url: 'mailto:sarthakit12412004@gmail.com',
   },
 ];
 

@@ -22,48 +22,25 @@ const ContactPage = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('Sending...');
+        setStatus('Redirecting to email...');
 
-        try {
-            const res = await fetch('/api/send', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            if (res.ok) {
-                setStatus('Message sent successfully!');
-                setName('');
-                setEmail('');
-                setMessage('');
-                setTimeout(() => setStatus(''), 5000);
-            } else {
-                const errorData = await res.json();
-                setStatus(`Error: ${errorData.error || 'Unknown error'}`);
-                setTimeout(() => setStatus(''), 5000);
-            }
-        } catch (error) {
-            console.error('Submission error', error);
-            setStatus('Error: Could not send message.');
-            setTimeout(() => setStatus(''), 5000);
-        }
-    };
-
-    const inputVariant = {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 }
+        const mailtoLink = `mailto:sarthakit12412004@gmail.com?subject=Contact from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+        window.location.href = mailtoLink;
+        
+        setTimeout(() => {
+            setStatus('Email client opened!');
+            setTimeout(() => setStatus(''), 3000);
+        }, 1000);
     };
 
     return (
         <div className="bg-black min-h-screen text-white flex items-center justify-center p-4 overflow-hidden">
             <motion.div 
                 className="relative w-full max-w-lg p-8 space-y-8 bg-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl shadow-xl shadow-cyan-500/10"
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
             >
-                {/* Background Grid */}
                 <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div>
                 
                 <div className="text-center">
@@ -81,7 +58,7 @@ const ContactPage = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                     >
-                        Let's build something amazing together.
+                        Let&apos;s build something amazing together.
                     </motion.p>
                 </div>
                 
@@ -103,7 +80,6 @@ const ContactPage = () => {
                                         value={field.value}
                                         onChange={(e) => field.setter(e.target.value)}
                                         required
-                                        rows={4}
                                         className="peer w-full px-4 py-3 bg-transparent border-2 border-gray-700 rounded-lg focus:ring-cyan-500 focus:border-cyan-500 transition-colors duration-300 placeholder-transparent"
                                         placeholder={field.label}
                                     />
@@ -133,12 +109,12 @@ const ContactPage = () => {
                             <motion.button
                                 type="submit"
                                 className={`w-full px-6 py-3 text-lg font-semibold text-black bg-gradient-to-r from-green-400 to-cyan-400 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 ${spaceMono.className}`}
-                                disabled={!isClient || status === 'Sending...'}
+                                disabled={!isClient || status === 'Redirecting to email...'}
                                 whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(45, 212, 191, 0.5)" }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <FiSend />
-                                {status === 'Sending...' ? 'Transmitting...' : 'Send Message'}
+                                {status === 'Redirecting to email...' ? 'Opening Email...' : 'Send Message'}
                             </motion.button>
                         </motion.div>
                     </motion.form>
@@ -152,12 +128,12 @@ const ContactPage = () => {
                 )}
 
                 <AnimatePresence>
-                {isClient && status && status !== 'Sending...' && (
+                {isClient && status && status !== 'Redirecting to email...' && (
                     <motion.p 
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className={`text-center text-sm mt-4 ${status.includes('successfully') ? 'text-green-400' : 'text-red-400'}`}
+                        className={`text-center text-sm mt-4 ${status.includes('Email client opened') ? 'text-green-400' : 'text-red-400'}`}
                     >
                         {status}
                     </motion.p>

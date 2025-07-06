@@ -20,7 +20,6 @@ const Footer: React.FC = () => {
                     viewport={{ once: true }}
                     className="space-y-6"
                 >
-                    {/* Made with Love */}
                     <div className="flex items-center justify-center gap-2 text-gray-300">
                         <span className="text-sm">Made with</span>
                         <motion.div
@@ -42,8 +41,7 @@ const Footer: React.FC = () => {
                         </span>
                     </div>
 
-                    {/* Follow on X */}
-                    <div className="space-y-3">
+                    <div className="flex flex-col items-center gap-4">
                         <p className="text-gray-400 text-sm">Follow me on</p>
                         <motion.a
                             href="https://x.com/SarthakHarsh"
@@ -60,7 +58,6 @@ const Footer: React.FC = () => {
                         </motion.a>
                     </div>
 
-                    {/* Copyright */}
                     <div className="pt-6 border-t border-cyan-500/10">
                         <p className="text-gray-500 text-xs">
                             © 2025 Sarthak Harsh. All rights reserved.

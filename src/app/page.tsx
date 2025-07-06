@@ -12,18 +12,10 @@ export default function Home() {
     <div className="min-h-screen bg-black relative overflow-x-hidden">
       <StarsBackground />
       <div className="relative z-10 pt-20">
-        {/* Navbar Component */}
         <Navbar />
-
-        {/* Introduction Component */}
         <Introduction />
-
-        {/* About Me Component */}
         <AboutMe />
-
-        {/* Skills Showcase Component */}
         <SkillsShowcase />
-        
         <Projects/>
         <ContactMe/>
         <Footer/>

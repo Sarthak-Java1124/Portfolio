@@ -30,7 +30,7 @@ const cardVariants = {
         transition: {
             duration: 0.5,
             delay: index * 0.2,
-            ease: [0.43, 0.13, 0.23, 0.96] as any
+            ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number]
         }
     })
 };
@@ -57,8 +57,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                        transition-all duration-300 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20
                        ${isActive ? 'opacity-100 scale-100' : 'opacity-50 scale-95'}`}
         >
-            {/* Removed Glitch Effect Layers */}
-            
             <div className="relative z-10">
                 <motion.div 
                     className="relative h-32 sm:h-40 mb-3 sm:mb-4 overflow-hidden rounded-lg border border-cyan-500/20 group-hover:border-cyan-400 transition-all duration-300"
@@ -214,7 +212,6 @@ const Projects: React.FC = () => {
             </div>
             
             <div className="relative">
-                {/* Navigation Buttons */}
                 <motion.button
                     onClick={prevSlide}
                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 border border-cyan-500/50 rounded-full p-2 sm:p-3 text-cyan-400 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
@@ -233,7 +230,6 @@ const Projects: React.FC = () => {
                     <FaChevronRight size={16} className="sm:w-5 sm:h-5" />
                 </motion.button>
 
-                {/* Carousel Container */}
                 <div className="relative overflow-hidden rounded-xl">
                     <motion.div 
                         className="flex transition-transform duration-500 ease-in-out"
@@ -251,7 +247,6 @@ const Projects: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* Dots Indicator */}
                 <div className="flex justify-center mt-6 sm:mt-8 gap-1 sm:gap-2">
                     {projects.map((_, index) => (
                         <motion.button

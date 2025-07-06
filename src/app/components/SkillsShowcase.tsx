@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { FaReact, FaNodeJs, FaJava, FaPython } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaJava } from 'react-icons/fa';
 import { Space_Mono } from 'next/font/google';
 
 const spaceMono = Space_Mono({
@@ -143,11 +143,10 @@ export default function SkillsShowcase() {
     setSelectedSkill(null);
   };
 
-  // Auto-rotate through skills
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
-    }, 2000); // Change skill every 2 seconds
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -180,7 +179,6 @@ export default function SkillsShowcase() {
         </AnimatePresence>
       </div>
 
-      {/* Skill Progress Indicator */}
       <div className="flex justify-center mt-8 gap-2">
         {skills.map((_, index) => (
           <motion.div
@@ -197,7 +195,6 @@ export default function SkillsShowcase() {
         ))}
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {selectedSkill && (
           <motion.div
@@ -214,7 +211,6 @@ export default function SkillsShowcase() {
               className="bg-[#1a1a1a] border-2 border-cyan-500/30 rounded-2xl p-8 max-w-md w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={closeModal}
                 className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"
@@ -222,7 +218,6 @@ export default function SkillsShowcase() {
                 <FaTimes size={20} />
               </button>
 
-              {/* Modal Content */}
               <div className="text-center">
                 <div className="text-6xl mb-4 drop-shadow-[0_0_20px_rgba(59,130,246,0.7)]">
                   {selectedSkill.icon}
