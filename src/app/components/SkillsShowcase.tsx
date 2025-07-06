@@ -134,6 +134,8 @@ interface Skill {
 export default function SkillsShowcase() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const openModal = (skill: Skill) => {
     setSelectedSkill(skill);
@@ -151,6 +153,32 @@ export default function SkillsShowcase() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
+    }
+    if (isRightSwipe) {
+      setCurrentSkillIndex((prevIndex) => (prevIndex - 1 + skills.length) % skills.length);
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <section className="w-full bg-black py-20" id="skills">
       <div className="max-w-5xl mx-auto text-center mb-12">
@@ -158,7 +186,12 @@ export default function SkillsShowcase() {
           &#47;&#47; Tools that I have used
         </h2>
       </div>
-      <div className="flex justify-center items-center max-w-5xl mx-auto">
+      <div 
+        className="flex justify-center items-center max-w-5xl mx-auto"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSkillIndex}

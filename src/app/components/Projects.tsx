@@ -128,6 +128,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const Projects: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
     
     const projects = [
         {
@@ -196,6 +198,32 @@ const Projects: React.FC = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
     };
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe) {
+            nextSlide();
+        }
+        if (isRightSwipe) {
+            prevSlide();
+        }
+
+        setTouchStart(null);
+        setTouchEnd(null);
+    };
+
     return (
         <motion.section 
             className="py-16 sm:py-20 px-4 max-w-7xl mx-auto"
@@ -230,7 +258,12 @@ const Projects: React.FC = () => {
                     <FaChevronRight size={16} className="sm:w-5 sm:h-5" />
                 </motion.button>
 
-                <div className="relative overflow-hidden rounded-xl">
+                <div 
+                    className="relative overflow-hidden rounded-xl"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <motion.div 
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
