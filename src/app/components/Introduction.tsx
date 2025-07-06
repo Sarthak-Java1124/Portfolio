@@ -2,20 +2,20 @@ export default function Introduction() {
   return (
     <section className="container mx-auto px-4 py-16" id="home">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-        {/* Image */}
+
         <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
           <div className="relative">
             <video autoPlay loop muted playsInline className="h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] lg:h-[540px] lg:w-[540px] object-cover" height="540" width="540" poster="/static/cube-fallback.jpg" src="/static/cube.mp4"></video>
           </div>
         </div>
 
-        {/* Content */}
+
         <div className="lg:w-1/2 space-y-6 order-1 lg:order-2 text-center lg:text-left w-full">
           <div className="space-y-4">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight hover:scale-105 transition-transform duration-300 cursor-pointer">
               Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 hover:from-purple-400 hover:to-pink-400 transition-all duration-500">Sarthak</span>
             </h1>
-            <h2 className="text-xl sm:text-2xl text-gray-300 font-mono hover:text-blue-400 hover:scale-105 transition-all duration-300 cursor-pointer">
+            <h2 className="text-lg sm:text-xl md:text-2xl text-gray-300 font-mono hover:text-blue-400 hover:scale-105 transition-all duration-300 cursor-pointer">
               Full Stack Developer
             </h2>
           </div>
@@ -29,10 +29,10 @@ export default function Introduction() {
             </p>
           </div>
           
-          {/* Skills Conveyor Belt */}
+  
           <div className="relative overflow-hidden bg-gray-900/50 rounded-lg p-2 sm:p-4">
             <div className="flex animate-scroll">
-              {/* First set of skills */}
+              
               <div className="flex gap-2 sm:gap-3 whitespace-nowrap">
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-blue-600/20 text-blue-400 rounded-full text-xs sm:text-sm font-mono border border-blue-500/30 hover:bg-blue-600/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 cursor-pointer">React</span>
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-green-600/20 text-green-400 rounded-full text-xs sm:text-sm font-mono border border-green-500/30 hover:bg-green-600/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300 cursor-pointer">Node.js</span>
@@ -47,7 +47,7 @@ export default function Introduction() {
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-yellow-500/20 text-yellow-300 rounded-full text-xs sm:text-sm font-mono border border-yellow-400/30 hover:bg-yellow-500/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 cursor-pointer">Solidity</span>
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-purple-500/20 text-purple-300 rounded-full text-xs sm:text-sm font-mono border border-purple-400/30 hover:bg-purple-500/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-purple-400/50 transition-all duration-300 cursor-pointer">Solana</span>
               </div>
-              {/* Duplicate set for seamless loop */}
+              
               <div className="flex gap-2 sm:gap-3 whitespace-nowrap">
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-blue-600/20 text-blue-400 rounded-full text-xs sm:text-sm font-mono border border-blue-500/30 hover:bg-blue-600/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 cursor-pointer">React</span>
                 <span className="px-2 sm:px-4 py-1 sm:py-2 bg-green-600/20 text-green-400 rounded-full text-xs sm:text-sm font-mono border border-green-500/30 hover:bg-green-600/40 hover:text-white hover:scale-110 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300 cursor-pointer">Node.js</span>

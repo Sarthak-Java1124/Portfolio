@@ -36,7 +36,7 @@ const ContactPage = () => {
     return (
         <div className="bg-black min-h-screen text-white flex items-center justify-center p-4 overflow-hidden">
             <motion.div 
-                className="relative w-full max-w-lg p-8 space-y-8 bg-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl shadow-xl shadow-cyan-500/10"
+                className="relative w-full max-w-sm sm:max-w-md md:max-w-lg p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 bg-black/50 backdrop-blur-sm border border-cyan-500/20 rounded-2xl shadow-xl shadow-cyan-500/10"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
@@ -45,7 +45,7 @@ const ContactPage = () => {
                 
                 <div className="text-center">
                     <motion.h1 
-                        className={`text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent ${spaceMono.className}`}
+                        className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent ${spaceMono.className}`}
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}

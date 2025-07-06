@@ -18,6 +18,7 @@ export default function Home() {
         <SkillsShowcase />
         <Projects/>
         <ContactMe/>
+        <div className="h-8 sm:h-12 md:h-16 lg:h-20"></div>
         <Footer/>
       </div>
     </div>

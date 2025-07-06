@@ -53,13 +53,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileInView="animate"
             viewport={{ once: true }}
             custom={index}
-            className={`group relative bg-black/50 border-2 border-cyan-500/30 rounded-xl p-3 sm:p-4 overflow-hidden max-w-sm sm:max-w-md mx-auto
+            className={`group relative bg-black/50 border-2 border-cyan-500/30 rounded-xl p-2 sm:p-3 md:p-4 overflow-hidden w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto
                        transition-all duration-300 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20
                        ${isActive ? 'opacity-100 scale-100' : 'opacity-50 scale-95'}`}
         >
             <div className="relative z-10">
                 <motion.div 
-                    className="relative h-32 sm:h-40 mb-3 sm:mb-4 overflow-hidden rounded-lg border border-cyan-500/20 group-hover:border-cyan-400 transition-all duration-300"
+                    className="relative h-24 sm:h-32 md:h-40 mb-2 sm:mb-3 md:mb-4 overflow-hidden rounded-lg border border-cyan-500/20 group-hover:border-cyan-400 transition-all duration-300"
                 >
                     <motion.img 
                         src={imageUrl} 
@@ -69,39 +69,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </motion.div>
 
                 <h3 
-                    className={`text-lg sm:text-xl font-bold mb-2 text-cyan-400 group-hover:text-green-400 transition-colors duration-300 ${spaceMono.className}`}
+                    className={`text-sm sm:text-base md:text-lg font-bold mb-1 sm:mb-2 text-cyan-400 group-hover:text-green-400 transition-colors duration-300 ${spaceMono.className} break-words`}
                 >
                     {title}
                 </h3>
 
-                <div className="h-12 sm:h-16 mb-3 relative flex items-center">
-                    <p className="text-gray-400 text-xs transition-opacity duration-300 group-hover:opacity-0">
+                <div className="min-h-[40px] sm:min-h-[48px] md:min-h-[64px] mb-2 sm:mb-3 relative">
+                    <p className="text-gray-400 text-[9px] sm:text-xs transition-opacity duration-300 group-hover:opacity-0 leading-tight break-words">
                         {description}
                     </p>
-                    <p className="absolute top-0 left-0 w-full h-full flex items-center text-xs sm:text-sm text-green-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [text-shadow:0_0_8px_rgba(74,222,128,0.7)]">
+                    <p className="absolute top-0 left-0 w-full h-full text-[9px] sm:text-xs md:text-sm text-green-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [text-shadow:0_0_8px_rgba(74,222,128,0.7)] leading-tight break-words">
                         {description}
                     </p>
                 </div>
 
-                <div className="flex flex-wrap gap-1 mb-3">
+                <div className="flex flex-wrap gap-1 mb-2 sm:mb-3">
                     {technologies.map((tech) => (
                         <span 
                             key={tech}
-                            className="px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-500/30
-                                       transition-all duration-300 group-hover:bg-green-900/50 group-hover:text-green-300 group-hover:border-green-500/30"
+                            className="px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[10px] md:text-xs rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-500/30
+                                       transition-all duration-300 group-hover:bg-green-900/50 group-hover:text-green-300 group-hover:border-green-500/30 break-words"
                         >
                             {tech}
                         </span>
                     ))}
                 </div>
 
-                <div className="flex gap-2 sm:gap-3 mt-3 sm:mt-4">
+                <div className="flex gap-1 sm:gap-2 md:gap-3 mt-2 sm:mt-3 md:mt-4">
                     <motion.a 
                         href={githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="project-btn text-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/50
-                                   transition-all duration-300 cursor-pointer"
+                        className="project-btn text-[8px] sm:text-[10px] md:text-xs px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/50
+                                   transition-all duration-300 cursor-pointer whitespace-nowrap"
                         whileHover={{ scale: 1.15 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -112,8 +112,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                             href={liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="project-btn text-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded-md bg-green-500/10 text-green-400 border border-green-500/50
-                                       transition-all duration-300 cursor-pointer"
+                            className="project-btn text-[8px] sm:text-[10px] md:text-xs px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 rounded-md bg-green-500/10 text-green-400 border border-green-500/50
+                                       transition-all duration-300 cursor-pointer whitespace-nowrap"
                             whileHover={{ scale: 1.15 }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -205,7 +205,7 @@ const Projects: React.FC = () => {
             id="projects"
         >
             <div className="text-center mb-12 sm:mb-16">
-                <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent ${spaceMono.className}`}>
+                <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent ${spaceMono.className}`}>
                     &#47;&#47; My Projects
                 </h2>
                 <p className="text-gray-500 text-xs sm:text-sm mt-2">A selection of my work in the web3 and web development space.</p>
@@ -214,7 +214,7 @@ const Projects: React.FC = () => {
             <div className="relative">
                 <motion.button
                     onClick={prevSlide}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 border border-cyan-500/50 rounded-full p-2 sm:p-3 text-cyan-400 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
+                    className="hidden sm:block absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 border border-cyan-500/50 rounded-full p-2 sm:p-3 text-cyan-400 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
@@ -223,7 +223,7 @@ const Projects: React.FC = () => {
                 
                 <motion.button
                     onClick={nextSlide}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 border border-cyan-500/50 rounded-full p-2 sm:p-3 text-cyan-400 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
+                    className="hidden sm:block absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 border border-cyan-500/50 rounded-full p-2 sm:p-3 text-cyan-400 hover:text-cyan-300 hover:border-cyan-400 transition-all duration-300 hover:scale-110"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                 >
@@ -236,7 +236,7 @@ const Projects: React.FC = () => {
                         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                     >
                         {projects.map((project, index) => (
-                            <div key={index} className="w-full flex-shrink-0 px-2 sm:px-4">
+                            <div key={index} className="w-full flex-shrink-0 px-1 sm:px-2 md:px-4">
                                 <ProjectCard 
                                     {...project}
                                     index={index}
@@ -247,7 +247,7 @@ const Projects: React.FC = () => {
                     </motion.div>
                 </div>
 
-                <div className="flex justify-center mt-6 sm:mt-8 gap-1 sm:gap-2">
+                <div className="hidden sm:flex justify-center mt-6 sm:mt-8 gap-1 sm:gap-2">
                     {projects.map((_, index) => (
                         <motion.button
                             key={index}

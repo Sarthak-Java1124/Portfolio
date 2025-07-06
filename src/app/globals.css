@@ -12,14 +12,14 @@ body {
   }
   100% {
     transform: translateX(-50%);
-  }
+}
 }
 
 .animate-scroll {
   animation: scroll 20s linear infinite;
 }
 
-/* Slower animation for projects */
+
 .animate-scroll-slow {
   animation: scroll 40s linear infinite;
 }
