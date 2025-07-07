@@ -30,7 +30,7 @@ const wireColor = 'bg-gradient-to-r from-blue-500/40 via-blue-400/20 to-purple-6
 
 const ContactMe: React.FC = () => {
   return (
-    <section className="w-full bg-black py-16 sm:py-20" id="contact">
+    <section className="w-full bg-black py-16 sm:py-20 scroll-mt-20" id="contact">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
           Contact Me

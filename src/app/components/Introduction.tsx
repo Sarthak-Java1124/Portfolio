@@ -1,6 +1,6 @@
 export default function Introduction() {
   return (
-    <section className="container mx-auto px-4 py-16" id="home">
+    <section className="container mx-auto px-4 py-16 scroll-mt-20" id="home">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
         <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">

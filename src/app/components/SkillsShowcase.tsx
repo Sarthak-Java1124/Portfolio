@@ -131,6 +131,76 @@ interface Skill {
   description: string;
 }
 
+const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => {
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+
+  const openModal = (skill: Skill) => {
+    setSelectedSkill(skill);
+  };
+
+  const closeModal = () => {
+    setSelectedSkill(null);
+  };
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1, ease: "easeInOut" }}
+        onClick={() => openModal(skill)}
+        className="flex flex-col items-center justify-center bg-[#23232a] rounded-2xl shadow-[0_4px_32px_0_rgba(59,130,246,0.15),0_1.5px_8px_0_rgba(147,51,234,0.10),0_1px_4px_0_rgba(236,72,153,0.08)] hover:shadow-[0_8px_40px_0_rgba(59,130,246,0.25),0_3px_16px_0_rgba(147,51,234,0.18),0_2px_8px_0_rgba(236,72,153,0.14)] transition-all duration-300 p-4 sm:p-6 group cursor-pointer w-full h-32 sm:h-36 md:h-40"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <div className="text-2xl sm:text-3xl md:text-4xl mb-2 drop-shadow-[0_0_12px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-transform duration-300">
+          {skill.icon}
+        </div>
+        <span className="text-white text-xs sm:text-sm md:text-base font-mono opacity-70 text-center">{skill.name}</span>
+      </motion.div>
+
+      <AnimatePresence>
+        {selectedSkill && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="bg-[#1a1a1a] border-2 border-cyan-500/30 rounded-2xl p-8 max-w-md w-full relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <FaTimes size={20} />
+              </button>
+
+              <div className="text-center">
+                <div className="text-6xl mb-4 drop-shadow-[0_0_20px_rgba(59,130,246,0.7)]">
+                  {selectedSkill.icon}
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 font-mono">
+                  {selectedSkill.name}
+                </h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                  {selectedSkill.description}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
 export default function SkillsShowcase() {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -180,52 +250,65 @@ export default function SkillsShowcase() {
   };
 
   return (
-    <section className="w-full bg-black py-20" id="skills">
+    <section className="w-full bg-black py-20 scroll-mt-20" id="skills">
       <div className="max-w-5xl mx-auto text-center mb-12">
         <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent ${spaceMono.className}`}>
           &#47;&#47; Tools that I have used
         </h2>
       </div>
-      <div 
-        className="flex justify-center items-center max-w-5xl mx-auto"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSkillIndex}
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: -20 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            onClick={() => openModal(skills[currentSkillIndex])}
-            className="flex flex-col items-center justify-center bg-[#23232a] rounded-2xl shadow-[0_4px_32px_0_rgba(59,130,246,0.15),0_1.5px_8px_0_rgba(147,51,234,0.10),0_1px_4px_0_rgba(236,72,153,0.08)] hover:shadow-[0_8px_40px_0_rgba(59,130,246,0.25),0_3px_16px_0_rgba(147,51,234,0.18),0_2px_8px_0_rgba(236,72,153,0.14)] transition-all duration-300 p-6 sm:p-8 md:p-12 group cursor-pointer w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <div className="text-4xl sm:text-5xl md:text-6xl mb-2 sm:mb-4 drop-shadow-[0_0_12px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-transform duration-300">
-              {skills[currentSkillIndex].icon}
-            </div>
-            <span className="text-white text-sm sm:text-base md:text-lg font-mono opacity-70 text-center">{skills[currentSkillIndex].name}</span>
-          </motion.div>
-        </AnimatePresence>
+
+      {/* Desktop Grid Layout */}
+      <div className="hidden md:block max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 lg:gap-6">
+          {skills.map((skill, index) => (
+            <SkillCard key={index} skill={skill} index={index} />
+          ))}
+        </div>
       </div>
 
-      <div className="hidden sm:flex justify-center mt-8 gap-2">
-        {skills.map((_, index) => (
-          <motion.div
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSkillIndex 
-                ? 'bg-cyan-400 scale-125' 
-                : 'bg-gray-600 hover:bg-gray-500'
-            }`}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-            onClick={() => setCurrentSkillIndex(index)}
-          />
-        ))}
+      {/* Mobile Slider Layout */}
+      <div className="md:hidden">
+        <div 
+          className="flex justify-center items-center max-w-5xl mx-auto"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSkillIndex}
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              onClick={() => openModal(skills[currentSkillIndex])}
+              className="flex flex-col items-center justify-center bg-[#23232a] rounded-2xl shadow-[0_4px_32px_0_rgba(59,130,246,0.15),0_1.5px_8px_0_rgba(147,51,234,0.10),0_1px_4px_0_rgba(236,72,153,0.08)] hover:shadow-[0_8px_40px_0_rgba(59,130,246,0.25),0_3px_16px_0_rgba(147,51,234,0.18),0_2px_8px_0_rgba(236,72,153,0.14)] transition-all duration-300 p-6 sm:p-8 md:p-12 group cursor-pointer w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="text-4xl sm:text-5xl md:text-6xl mb-2 sm:mb-4 drop-shadow-[0_0_12px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-transform duration-300">
+                {skills[currentSkillIndex].icon}
+              </div>
+              <span className="text-white text-sm sm:text-base md:text-lg font-mono opacity-70 text-center">{skills[currentSkillIndex].name}</span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="hidden sm:flex justify-center mt-8 gap-2">
+          {skills.map((_, index) => (
+            <motion.div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentSkillIndex 
+                  ? 'bg-cyan-400 scale-125' 
+                  : 'bg-gray-600 hover:bg-gray-500'
+              }`}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              onClick={() => setCurrentSkillIndex(index)}
+            />
+          ))}
+        </div>
       </div>
 
       <AnimatePresence>

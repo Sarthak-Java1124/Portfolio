@@ -14,7 +14,7 @@ const AboutMe = () => {
     useEffect(() => { setIsClient(true); }, []);
 
     return (
-        <section className="w-full bg-black py-20 overflow-hidden" id="about">
+        <section className="w-full bg-black py-20 overflow-hidden scroll-mt-20" id="about">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col lg:flex-row items-center gap-12">
                     <div className="lg:w-1/2 flex items-center justify-center hidden sm:flex">

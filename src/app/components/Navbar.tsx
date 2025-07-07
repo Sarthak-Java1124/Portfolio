@@ -16,14 +16,16 @@ export default function Navbar() {
   };
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
     closeMenu();
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 200);
   };
 
   const navItems = [
@@ -88,16 +90,17 @@ export default function Navbar() {
             >
               <div className="bg-black/90 backdrop-blur-sm border-t border-cyan-500/20 py-4 space-y-2">
                 {navItems.map((item, index) => (
-                  <motion.button
+                  <motion.a
                     key={item.href}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
+                    onClick={closeMenu}
                     className="block w-full text-left px-4 py-3 text-white hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 font-mono font-semibold tracking-wide bg-transparent border-none cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
                     {item.label}
-                  </motion.button>
+                  </motion.a>
                 ))}
               </div>
             </motion.div>

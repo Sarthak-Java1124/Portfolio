@@ -63,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 >
                     <motion.img 
                         src={imageUrl} 
-                        alt={title} 
+                        alt={title}
                         className="object-contain w-full h-full transition-all duration-300"
                     />
                 </motion.div>
@@ -73,7 +73,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 >
                     {title}
                 </h3>
-
+                
                 <div className="min-h-[40px] sm:min-h-[48px] md:min-h-[64px] mb-2 sm:mb-3 relative">
                     <p className="text-gray-400 text-[9px] sm:text-xs transition-opacity duration-300 group-hover:opacity-0 leading-tight break-words">
                         {description}
@@ -226,7 +226,7 @@ const Projects: React.FC = () => {
 
     return (
         <motion.section 
-            className="py-16 sm:py-20 px-4 max-w-7xl mx-auto"
+            className="py-16 sm:py-20 px-4 max-w-7xl mx-auto scroll-mt-20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
