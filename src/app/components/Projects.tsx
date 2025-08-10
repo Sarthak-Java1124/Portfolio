@@ -78,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     <p className="text-gray-400 text-[9px] sm:text-xs transition-opacity duration-300 group-hover:opacity-0 leading-tight break-words">
                         {description}
                     </p>
-                    <p className="absolute top-0 left-0 w-full h-full text-[9px] sm:text-xs md:text-sm text-green-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [text-shadow:0_0_8px_rgba(74,222,128,0.7)] leading-tight break-words">
+                    <p className="absolute top-0 left-0 w-full h-full text-[5px] sm:text-xs md:text-sm text-green-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [text-shadow:0_0_8px_rgba(74,222,128,0.2)] leading-tight break-words">
                         {description}
                     </p>
                 </div>
@@ -87,7 +87,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     {technologies.map((tech) => (
                         <span 
                             key={tech}
-                            className="px-1 sm:px-1.5 md:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[10px] md:text-xs rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-500/30
+                            className="px-1 mt-4 sm:px-1.5 md:px-2 py-0.5 sm:py-1 text-[8px] sm:text-[10px] md:text-xs rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-500/30
                                        transition-all duration-300 group-hover:bg-green-900/50 group-hover:text-green-300 group-hover:border-green-500/30 break-words"
                         >
                             {tech}
@@ -132,62 +132,112 @@ const Projects: React.FC = () => {
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
     
     const projects = [
-        {
-            title: "FixFit",
-            description: "FixFit is an e-tailoring app where users can book small tailoring services such as altering, rafu, iron, dry cleaning, and more. A comprehensive platform connecting customers with local tailoring services.",
-            technologies: ["Shadcn", "Node.js", "React.js", "Next.js", "MongoDB", "Next Auth"],
-            imageUrl: "/static/FixFit.png",
-            githubLink: "https://github.com/Sarthak-Java1124/FixFit",
-            liveLink: "https://fix-fit.vercel.app/"
-        },
-        {
-            title: "Maskd",
-            description: "Maskd is an anonymous feedback and messaging platform inspired by NGL link, enabling users to receive honest, unfiltered feedback while maintaining complete anonymity. Built with AI-powered content moderation and secure messaging infrastructure.",
-            technologies: ["Open AI", "Next.js", "Node.js", "React.js", "Tailwind CSS", "Shadcn", "Next Auth", "MongoDB"],
-            imageUrl: "/static/maskd.png",
-            githubLink: "https://github.com/Sarthak-Java1124/Maskd",
-            liveLink: "https://maskd-eight.vercel.app/"
-        },
-        {
-            title: "Robo Mint",
-            description: "Robo Mint is a NFT minting marketplace for different robotos",
-            technologies: ["Next.js", "Tailwind CSS", "Solana", "Shadcn", "Framer Motion", "Ethereum", "Node.js"],
-            imageUrl: "/static/roboto-mint-preview.png",
-            githubLink: "https://github.com/Sarthak-Java1124/RoboMint",
-            liveLink: "https://robo-mint-nnie.vercel.app/"
-        },
-        {
-            title: "1Stop",
-            description: "1Stop is a feature-rich e-commerce application built with Flutter, delivering a seamless cross-platform shopping experience with Firebase integration.",
-            technologies: ["Flutter", "Dart", "Firebase"],
-            imageUrl: "/static/onestop.png",
-            githubLink: "https://github.com/Sarthak-Java1124/FlutterEcommerce",
-            liveLink: "https://youtube.com/shorts/HvWmdJ0y1ws"
-        },
-        {
-            title: "CryptoWave",
-            description: "CryptoWave is a web3 portfolio management app build on flutter and dart",
-            technologies: ["Flutter", "Dart", "Solana", "Ethereum", "Getx"],
-            imageUrl: "/static/appLogo (2).png",
-            githubLink: "https://github.com/Sarthak-Java1124/CryptoWave",
-            liveLink: "#"
-        },
-        {
-            title: "Suggestion Blocker",
-            description: "A browser extension that blocks YouTube suggestions and feed to help users stay focused and avoid distractions while watching videos. Enhances productivity by providing a cleaner, distraction-free YouTube experience.",
-            technologies: ["TypeScript"],
-            imageUrl: "/static/suggestion-blocker-preview.png",
-            githubLink: "https://github.com/Sarthak-Java1124/JavaScriptExtension",
-            liveLink: "#"
-        },
-        {
-            title: "Terminal GPT",
-            description: "A Cursor/CodeGen-style extension for command line interfaces that provides intelligent command suggestions and autocompletion. Enhances terminal productivity by offering context-aware command recommendations and smart autocomplete functionality.",
-            technologies: ["Python"],
-            imageUrl: "/static/terminal-gpt-preview.png",
-            githubLink: "https://github.com/Sarthak-Java1124/CMDCHATGPT",
-            liveLink: "#"
-        },
+      {
+        title: "PledgeFunds",
+        description:
+          "Pledge Fund is a platform designed to crush procrastination. Users commit to tasks, stake USDC on their completion, and stay accountable. If the task isn’t finished on time, the stake is lost  , turning procrastination into a costly habit and productivity into a rewarding one",
+        technologies: [
+          "Shadcn",
+          "Node.js",
+          "React.js",
+          "Next.js",
+          "MongoDB",
+          "Next Auth",
+          "Ethereum",
+          "Solidity",
+          "Hardhat",
+        ],
+        imageUrl: "/static/pledge-fund.png",
+        githubLink: "https://github.com/Sarthak-Java1124/FixFit",
+        liveLink: "https://fix-fit.vercel.app/",
+      },
+      {
+        title: "FixFit",
+        description:
+          "FixFit is an e-tailoring app where users can book small tailoring services such as altering, rafu, iron, dry cleaning, and more. A comprehensive platform connecting customers with local tailoring services.",
+        technologies: [
+          "Shadcn",
+          "Node.js",
+          "React.js",
+          "Next.js",
+          "MongoDB",
+          "Next Auth",
+        ],
+        imageUrl: "/static/FixFit.png",
+        githubLink: "https://github.com/Sarthak-Java1124/FixFit",
+        liveLink: "https://fix-fit.vercel.app/",
+      },
+      {
+        title: "Maskd",
+        description:
+          "Maskd is an anonymous feedback and messaging platform inspired by NGL link, enabling users to receive honest, unfiltered feedback while maintaining complete anonymity. Built with AI-powered content moderation and secure messaging infrastructure.",
+        technologies: [
+          "Open AI",
+          "Next.js",
+          "Node.js",
+          "React.js",
+          "Tailwind CSS",
+          "Shadcn",
+          "Next Auth",
+          "MongoDB",
+        ],
+        imageUrl: "/static/maskd.png",
+        githubLink: "https://github.com/Sarthak-Java1124/Maskd",
+        liveLink: "https://maskd-eight.vercel.app/",
+      },
+      {
+        title: "Robo Mint",
+        description:
+          "Robo Mint is a NFT minting marketplace for different robotos",
+        technologies: [
+          "Next.js",
+          "Tailwind CSS",
+          "Solana",
+          "Shadcn",
+          "Framer Motion",
+          "Ethereum",
+          "Node.js",
+        ],
+        imageUrl: "/static/roboto-mint-preview.png",
+        githubLink: "https://github.com/Sarthak-Java1124/RoboMint",
+        liveLink: "https://robo-mint-nnie.vercel.app/",
+      },
+      {
+        title: "1Stop",
+        description:
+          "1Stop is a feature-rich e-commerce application built with Flutter, delivering a seamless cross-platform shopping experience with Firebase integration.",
+        technologies: ["Flutter", "Dart", "Firebase"],
+        imageUrl: "/static/onestop.png",
+        githubLink: "https://github.com/Sarthak-Java1124/FlutterEcommerce",
+        liveLink: "https://youtube.com/shorts/HvWmdJ0y1ws",
+      },
+      {
+        title: "CryptoWave",
+        description:
+          "CryptoWave is a web3 portfolio management app build on flutter and dart",
+        technologies: ["Flutter", "Dart", "Solana", "Ethereum", "Getx"],
+        imageUrl: "/static/appLogo (2).png",
+        githubLink: "https://github.com/Sarthak-Java1124/CryptoWave",
+        liveLink: "#",
+      },
+      {
+        title: "Suggestion Blocker",
+        description:
+          "A browser extension that blocks YouTube suggestions and feed to help users stay focused and avoid distractions while watching videos. Enhances productivity by providing a cleaner, distraction-free YouTube experience.",
+        technologies: ["TypeScript"],
+        imageUrl: "/static/suggestion-blocker-preview.png",
+        githubLink: "https://github.com/Sarthak-Java1124/JavaScriptExtension",
+        liveLink: "#",
+      },
+      {
+        title: "Terminal GPT",
+        description:
+          "A Cursor/CodeGen-style extension for command line interfaces that provides intelligent command suggestions and autocompletion. Enhances terminal productivity by offering context-aware command recommendations and smart autocomplete functionality.",
+        technologies: ["Python"],
+        imageUrl: "/static/terminal-gpt-preview.png",
+        githubLink: "https://github.com/Sarthak-Java1124/CMDCHATGPT",
+        liveLink: "#",
+      },
     ];
 
     const nextSlide = () => {
