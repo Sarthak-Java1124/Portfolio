@@ -133,6 +133,54 @@ const Projects: React.FC = () => {
     
     const projects = [
       {
+        title: "Anonimity",
+        description:
+          "An anonymous web app on the Sepolia blockchain where introverts and deep thinkers can freely express their feelings. Every message is permanently stored on-chain, making it a lasting voice to the world and a forever reminder to yourself.",
+        technologies: [
+          "Node.js",
+          "React.js",
+          "Next.js",
+
+          "Ethereum",
+          "Solidity",
+          "Hardhat",
+        ],
+        imageUrl: "/static/anonimity.png",
+        githubLink: "https://github.com/Sarthak-Java1124/Anonimity",
+        liveLink: "https://anonimity-nu.vercel.app/",
+      },
+      {
+        title: "Pixel Bonk",
+        description:
+          "An anonymous web app on the Sepolia blockchain where introverts and deep thinkers can freely express their feelings. Every message is permanently stored on-chain, making it a lasting voice to the world and a forever reminder to yourself.",
+        technologies: [
+          "Node.js",
+          "React.js",
+          "Next.js",
+
+          "Tailwindcss",
+          "Framer-motion",
+        ],
+        imageUrl: "/static/pixel-bonk.png",
+        githubLink: "https://github.com/Sarthak-Java1124/Pixel-Bonk",
+        liveLink: "https://pixel-bonk.vercel.app/",
+      },
+      {
+        title: "Bonk Cats",
+        description:
+          "Bonk Cats is a crypto landing page I made for a client for his launch it has some complex designs and a highly responsive UI",
+        technologies: [
+          
+          "Node.js",
+          "React.js",
+          "Next.js",
+          "Framer-motion",
+        ],
+        imageUrl: "/static/bonk-cats.png",
+        githubLink: "https://github.com/Sarthak-Java1124/CryptoUiNft",
+        liveLink: "https://crypto-ui-nft.vercel.app/",
+      },
+      {
         title: "PledgeFunds",
         description:
           "Pledge Fund is a platform designed to crush procrastination. Users commit to tasks, stake USDC on their completion, and stay accountable. If the task isn’t finished on time, the stake is lost  , turning procrastination into a costly habit and productivity into a rewarding one",
