@@ -133,6 +133,24 @@ const Projects: React.FC = () => {
     
     const projects = [
       {
+        title: "W3ins",
+        description:
+          "We all have those small daily wins. Ever thought if they could be stored forever?That’s what I built , with W3ins you can mint your win as an NFT straight to your wallet and preview it anytime by just connecting your wallet.",
+        technologies: [
+          "Node.js",
+          "React.js",
+          "Next.js",
+          "Pinata Cloud",
+          "ERC-721",
+          "Ethereum",
+          "Solidity",
+          "Hardhat",
+        ],
+        imageUrl: "/static/w3ins.png",
+        githubLink: "https://github.com/Sarthak-Java1124/W3ins",
+        liveLink: "https://w3ins-six.vercel.app/"
+      },
+      {
         title: "Anonimity",
         description:
           "An anonymous web app on the Sepolia blockchain where introverts and deep thinkers can freely express their feelings. Every message is permanently stored on-chain, making it a lasting voice to the world and a forever reminder to yourself.",
@@ -157,7 +175,6 @@ const Projects: React.FC = () => {
           "Node.js",
           "React.js",
           "Next.js",
-
           "Tailwindcss",
           "Framer-motion",
         ],
@@ -196,8 +213,8 @@ const Projects: React.FC = () => {
           "Hardhat",
         ],
         imageUrl: "/static/pledge-fund.png",
-        githubLink: "https://github.com/Sarthak-Java1124/FixFit",
-        liveLink: "https://fix-fit.vercel.app/",
+        githubLink: "https://github.com/Sarthak-Java1124/plegde-funds",
+        liveLink: "https://plegde-funds-9g9z.vercel.app/",
       },
       {
         title: "FixFit",
