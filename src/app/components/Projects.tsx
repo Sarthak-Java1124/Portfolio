@@ -170,7 +170,7 @@ const Projects: React.FC = () => {
       {
         title: "Pixel Bonk",
         description:
-          "An anonymous web app on the Sepolia blockchain where introverts and deep thinkers can freely express their feelings. Every message is permanently stored on-chain, making it a lasting voice to the world and a forever reminder to yourself.",
+          "A quiz app made for pixel bonk where you have to answer questions related to pixel bonk. It was made for a freelance client but he ghosted me and paid only half of what was promised",
         technologies: [
           "Node.js",
           "React.js",
@@ -182,6 +182,23 @@ const Projects: React.FC = () => {
         githubLink: "https://github.com/Sarthak-Java1124/Pixel-Bonk",
         liveLink: "https://pixel-bonk.vercel.app/",
       },
+      {
+        title: "WebMate",
+        description:
+          "A landing page made for topmate like app where you can pay in crypto. It was designed by me for a client",
+        technologies: [
+          "Node.js",
+          "React.js",
+          "Next.js",
+          "Tailwindcss",
+          "Framer-motion",
+        ],
+        imageUrl: "/static/web-mate.png",
+        githubLink: "https://github.com/Sarthak-Java1124/webMate-SaaS",
+        liveLink: "https://web-mate-saa-s.vercel.app/",
+      },
+      
+      
       {
         title: "Bonk Cats",
         description:
