@@ -120,8 +120,8 @@ Always up for solving real problems, experimenting with new tools, and just leve
                             </motion.a>
 
                             <motion.a
-                                href="/static/Sarthak_Resume.pdf"
-                                download="Sarthak_Resume"
+                                href="/static/Sarthak_Resume_MARCH26.pdf"
+                                download="Sarthak_Resume_MARCH26"
                                 className={`px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent border-2 border-cyan-500/50 rounded-lg text-cyan-400 font-semibold flex items-center gap-2 hover:bg-cyan-500/10 hover:border-cyan-400 transition-colors text-sm sm:text-base ${spaceMono.className}`}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
